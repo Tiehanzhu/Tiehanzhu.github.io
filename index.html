@@ -1,0 +1,93 @@
+---
+layout: default
+---
+
+<!-- Hero 区域 - 个人介绍 -->
+<section class="hero">
+    <div class="container">
+        <h1 class="hero-title">朱轶豪</h1>
+        <p class="hero-subtitle">{{ site.author.university }} · {{ site.author.major }}{{ site.author.degree }}</p>
+        <p class="hero-description">
+            探索密码学的奥秘，记录研究生涯的点滴。<br>
+            在这里分享学术研读、生活感悟、目标规划与思考漫谈。
+        </p>
+        
+        <div class="hero-meta">
+            <div class="meta-item">
+                <span class="meta-icon">🎓</span>
+                <span>密码学</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-icon">🏫</span>
+                <span>西安电子科技大学</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-icon">📚</span>
+                <span>2025级硕士研究生</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 四大板块 -->
+<section class="sections">
+    <div class="container">
+        <h2 class="section-title">内容板块</h2>
+        
+        <div class="cards-grid">
+            <!-- 学术研读 -->
+            <a href="{{ '/academic/' | relative_url }}" class="card">
+                <span class="card-icon">📖</span>
+                <h3 class="card-title">学术研读</h3>
+                <p class="card-description">论文阅读笔记、学术思考与研究心得</p>
+                <span class="card-count">{{ site.categories.academic | size }} 篇文章</span>
+            </a>
+            
+            <!-- 生活随笔 -->
+            <a href="{{ '/life/' | relative_url }}" class="card">
+                <span class="card-icon">✍️</span>
+                <h3 class="card-title">生活随笔</h3>
+                <p class="card-description">记录日常生活、感悟与美好瞬间</p>
+                <span class="card-count">{{ site.categories.life | size }} 篇文章</span>
+            </a>
+            
+            <!-- 目标与规划 -->
+            <a href="{{ '/goals/' | relative_url }}" class="card">
+                <span class="card-icon">🎯</span>
+                <h3 class="card-title">目标与规划</h3>
+                <p class="card-description">研究生涯规划、阶段目标与实现路径</p>
+                <span class="card-count">{{ site.categories.goals | size }} 篇文章</span>
+            </a>
+            
+            <!-- 思绪漫谈 -->
+            <a href="{{ '/thoughts/' | relative_url }}" class="card">
+                <span class="card-icon">💭</span>
+                <h3 class="card-title">思绪漫谈</h3>
+                <p class="card-description">自由思考、观点分享与灵感记录</p>
+                <span class="card-count">{{ site.categories.thoughts | size }} 篇文章</span>
+            </a>
+        </div>
+
+        <!-- 成就展示区域 -->
+        <div class="achievements">
+            <h2 class="achievements-title">🏆 研究生涯成就</h2>
+            
+            {% comment %}
+            <!-- 当有成就时，取消下面的注释并添加成就内容 -->
+            <div class="achievements-list">
+                <div class="achievement-item">
+                    <span class="achievement-icon">🏅</span>
+                    <h3 class="achievement-title">成就标题</h3>
+                    <p class="achievement-description">成就描述内容</p>
+                </div>
+            </div>
+            {% endcomment %}
+            
+            <div class="achievements-empty">
+                <p>研究生涯刚刚开始，精彩成就即将解锁...</p>
+                <p style="margin-top: 12px; font-size: 14px; opacity: 0.7;">Stay hungry, Stay foolish.</p>
+            </div>
+        </div>
+    </div>
+</section>
+

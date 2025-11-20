@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<div class="page-header">
+    <div class="container">
+        <h1 class="page-title">{{ page.title }}</h1>
+        <p class="page-description">{{ page.description }}</p>
+    </div>
+</div>
+
+<div class="posts-list">
+    <div class="container">
+        {% assign category_posts = site.categories[page.category] | sort: 'date' | reverse %}
+        
+        {% if category_posts.size > 0 %}
+            {% for post in category_posts %}
+            <a href="{{ post.url | relative_url }}" class="post-item">
+                <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
+                <h2 class="post-title">{{ post.title }}</h2>
+                {% if post.excerpt %}
+                <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+                {% endif %}
+                <div class="post-meta">
+                    {% if post.tags %}
+                    <span>🏷️ {{ post.tags | join: ", " }}</span>
+                    {% endif %}
+                </div>
+            </a>
+            {% endfor %}
+        {% else %}
+            <div class="empty-state">
+                <div class="empty-state-icon">📝</div>
+                <p class="empty-state-text">暂无文章，敬请期待...</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+

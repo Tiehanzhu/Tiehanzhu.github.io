@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ site.description }}">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="{{ '/' | relative_url }}" class="logo">{{ site.author.name }}</a>
+            <ul class="nav-links">
+                <li><a href="{{ '/' | relative_url }}">首页</a></li>
+                <li><a href="{{ '/academic/' | relative_url }}">学术研读</a></li>
+                <li><a href="{{ '/life/' | relative_url }}">生活随笔</a></li>
+                <li><a href="{{ '/goals/' | relative_url }}">目标与规划</a></li>
+                <li><a href="{{ '/thoughts/' | relative_url }}">思绪漫谈</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    {{ content }}
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <ul class="footer-links">
+                    <li><a href="https://github.com/{{ site.author.github }}" target="_blank">GitHub</a></li>
+                    <li><a href="mailto:{{ site.author.email }}">联系我</a></li>
+                </ul>
+                <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}. All rights reserved.</p>
+                <p style="margin-top: 8px; opacity: 0.7;">{{ site.author.university }} · {{ site.author.major }}{{ site.author.degree }}</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

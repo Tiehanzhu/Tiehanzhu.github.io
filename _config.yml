@@ -1,0 +1,48 @@
+# 网站基础配置
+title: 朱轶豪
+description: 西安电子科技大学 · 密码学硕士研究生
+url: https://zhwyh1a0.github.io
+baseurl: ""
+
+# 作者信息
+author:
+  name: 朱轶豪
+  bio: 西安电子科技大学密码学硕士研究生
+  university: 西安电子科技大学
+  major: 密码学
+  degree: 硕士研究生
+  email: # 你的邮箱（可选）
+  github: ZhwY1Ha0
+
+# 构建设置
+markdown: kramdown
+permalink: /:categories/:year/:month/:day/:title/
+timezone: Asia/Shanghai
+
+# 插件
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# 排除文件
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# 集合配置
+collections:
+  posts:
+    output: true
+    permalink: /:categories/:year/:month/:day/:title/
+
+# 默认设置
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
