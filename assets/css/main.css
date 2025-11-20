@@ -89,226 +89,244 @@ body {
 /* ==================== 主页 - 个人介绍 ==================== */
 .intro-section {
     margin-top: 60px;
-    padding: 80px 0 60px;
+    padding: 60px 0 50px;
     background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
 }
 
-.intro-content {
-    max-width: 800px;
+.intro-box {
+    max-width: 700px;
     margin: 0 auto;
     text-align: center;
 }
 
 .intro-name {
-    font-size: 52px;
+    font-size: 48px;
     font-weight: 700;
     letter-spacing: -1.2px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .intro-title {
-    font-size: 20px;
+    font-size: 18px;
     color: var(--secondary-color);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .intro-bio {
-    font-size: 17px;
+    font-size: 16px;
     color: var(--secondary-color);
     line-height: 1.8;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
 }
 
-.intro-meta {
+.intro-stats {
     display: flex;
     justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-    font-size: 14px;
-    color: var(--secondary-color);
+    gap: 40px;
 }
 
-.intro-meta span {
-    padding: 8px 16px;
-    background: white;
-    border-radius: 20px;
-    border: 1px solid var(--border-color);
-}
-
-/* 成就卡片 */
-.achievements-card {
-    max-width: 600px;
-    margin: 48px auto 0;
-    background: white;
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 32px;
+.stat-box {
     text-align: center;
 }
 
-.achievements-card h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 24px;
-}
-
-.achievement-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 24px;
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-number {
-    font-size: 32px;
+.stat-num {
+    font-size: 36px;
     font-weight: 700;
     color: var(--accent-color);
-    margin-bottom: 8px;
+    line-height: 1;
 }
 
 .stat-label {
     font-size: 13px;
     color: var(--secondary-color);
+    margin-top: 8px;
 }
 
-.achievement-quote {
-    font-size: 14px;
+/* ==================== 内容板块导航 ==================== */
+.sections-nav {
+    padding: 50px 0 40px;
+    background: white;
+}
+
+.sections-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.section-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+}
+
+.section-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color);
+}
+
+.section-icon {
+    font-size: 44px;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.section-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.section-desc {
+    font-size: 13px;
     color: var(--secondary-color);
-    font-style: italic;
-    padding-top: 20px;
-    border-top: 1px solid var(--border-color);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.section-count {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--accent-color);
+    font-weight: 600;
+    padding: 4px 12px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.filter-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.filter-btn {
+    padding: 10px 24px;
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.filter-btn.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.filter-text {
+    font-size: 13px;
+    color: var(--secondary-color);
 }
 
 /* ==================== 文章列表 ==================== */
 .posts-section {
-    padding: 60px 0 80px;
-}
-
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
+    padding: 50px 0 80px;
+    background: var(--card-bg);
 }
 
 .section-title {
     font-size: 32px;
     font-weight: 700;
     letter-spacing: -0.8px;
-}
-
-.view-all {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-.view-all:hover {
-    opacity: 0.7;
-}
-
-/* 文章时间线 */
-.posts-timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.post-card {
-    display: flex;
-    gap: 24px;
-    padding: 28px;
-    background: white;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    transition: var(--transition);
-}
-
-.post-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-    border-color: var(--accent-color);
-}
-
-.post-date-badge {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: 70px;
-    padding: 12px;
-    background: var(--card-bg);
-    border-radius: 8px;
+    margin-bottom: 40px;
     text-align: center;
 }
 
-.date-day {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--primary-color);
-    line-height: 1;
+.posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.date-month {
-    font-size: 12px;
+.post-item {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    transition: var(--transition);
+}
+
+.post-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent-color);
+}
+
+.post-meta-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.post-date {
+    font-size: 13px;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.post-tags-inline {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.tag-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background: var(--card-bg);
     color: var(--secondary-color);
-    margin-top: 4px;
-}
-
-.date-year {
     font-size: 11px;
-    color: var(--secondary-color);
-    opacity: 0.7;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
 }
 
-.post-content {
-    flex: 1;
-}
-
-.post-title {
+.post-title-link {
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 10px;
     line-height: 1.4;
 }
 
-.post-title a {
+.post-title-link a {
     color: var(--primary-color);
     text-decoration: none;
     transition: var(--transition);
 }
 
-.post-title a:hover {
+.post-title-link a:hover {
     color: var(--accent-color);
 }
 
-.post-excerpt {
+.post-excerpt-text {
     font-size: 15px;
     color: var(--secondary-color);
     line-height: 1.7;
-    margin-bottom: 12px;
-}
-
-.post-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.tag {
-    display: inline-block;
-    padding: 4px 12px;
-    background: var(--card-bg);
-    color: var(--secondary-color);
-    font-size: 12px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
+    margin: 0;
 }
 
 /* ==================== 归档页面 ==================== */
@@ -626,42 +644,53 @@ body {
 }
 
 /* ==================== 响应式设计 ==================== */
+@media (max-width: 1024px) {
+    .sections-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .intro-name {
         font-size: 36px;
     }
     
     .intro-title {
-        font-size: 17px;
+        font-size: 16px;
     }
     
     .intro-bio {
         font-size: 15px;
     }
     
+    .intro-stats {
+        gap: 30px;
+    }
+    
+    .stat-num {
+        font-size: 32px;
+    }
+    
     .nav-links {
-        gap: 20px;
+        gap: 16px;
     }
     
     .nav-links a {
         font-size: 14px;
     }
     
-    .post-card {
-        flex-direction: column;
+    .sections-grid {
+        grid-template-columns: 1fr;
         gap: 16px;
     }
     
-    .post-date-badge {
-        flex-direction: row;
-        gap: 8px;
-        width: 100%;
-        justify-content: flex-start;
-        padding: 12px 16px;
+    .section-card {
+        padding: 24px 20px;
     }
     
-    .date-day {
-        font-size: 24px;
+    .post-meta-bar {
+        flex-direction: column;
+        align-items: flex-start;
     }
     
     .archive-item {
@@ -686,11 +715,12 @@ body {
         font-size: 16px;
     }
     
-    .achievement-stats {
-        gap: 16px;
+    .filter-info {
+        flex-direction: column;
     }
     
-    .stat-number {
-        font-size: 28px;
+    .filter-text {
+        order: -1;
+        margin-bottom: 12px;
     }
 }
