@@ -2,133 +2,87 @@
 layout: default
 ---
 
-<!-- Hero 区域 - 个人介绍 + 成就 -->
-<section class="hero">
+<!-- 个人介绍区域 -->
+<section class="intro-section">
     <div class="container">
-        <div class="hero-layout">
-            <!-- 左侧：个人介绍 -->
-            <div class="hero-intro">
-                <h1 class="hero-title">朱轶豪</h1>
-                <p class="hero-subtitle">{{ site.author.university }} · {{ site.author.major }}{{ site.author.degree }}</p>
-                <p class="hero-description">
-                    探索密码学的奥秘，记录研究生涯的点滴。<br>
-                    在这里分享学术研读、生活感悟、目标规划与思考漫谈。
-                </p>
-                
-                <div class="hero-meta">
-                    <div class="meta-item">
-                        <span class="meta-icon">🎓</span>
-                        <span>密码学</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">🏫</span>
-                        <span>西安电子科技大学</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">📚</span>
-                        <span>2025级硕士研究生</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 右侧：成就展示 -->
-            <div class="hero-achievements">
-                <h2 class="achievements-title">🏆 研究生涯成就</h2>
-                
-                {% comment %}
-                <!-- 当有成就时，取消下面的注释并添加成就内容 -->
-                <div class="achievements-list-compact">
-                    <div class="achievement-item-compact">
-                        <span class="achievement-icon">🏅</span>
-                        <div class="achievement-content">
-                            <h3 class="achievement-title">成就标题</h3>
-                            <p class="achievement-date">2025年11月</p>
-                        </div>
-                    </div>
-                </div>
-                {% endcomment %}
-                
-                <div class="achievements-empty-compact">
-                    <p>研究生涯刚刚开始<br>精彩成就即将解锁...</p>
-                    <p style="margin-top: 12px; font-size: 13px; opacity: 0.6;">Stay hungry, Stay foolish.</p>
-                </div>
+        <div class="intro-content">
+            <h1 class="intro-name">朱轶豪</h1>
+            <p class="intro-title">西安电子科技大学 · 密码学硕士研究生</p>
+            <p class="intro-bio">
+                记录研究生学习与生活的点滴。<br>
+                论文阅读、日常感悟、目标规划，在这里留下思考的痕迹。
+            </p>
+            <div class="intro-meta">
+                <span>🎓 密码学</span>
+                <span>🏫 西安电子科技大学</span>
+                <span>📚 2025级</span>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- 四大板块 -->
-<section class="sections">
-    <div class="container">
-        <h2 class="section-title">内容板块</h2>
         
-        <!-- 2x2 网格布局 -->
-        <div class="cards-grid-equal">
-            <!-- 学术研读 -->
-            {% assign academic_posts = site.categories.academic | sort: 'date' | reverse %}
-            <a href="{{ '/academic/' | relative_url }}" class="card">
-                <span class="card-icon">📖</span>
-                <h3 class="card-title">学术研读</h3>
-                <p class="card-description">论文阅读笔记、学术思考与研究心得</p>
-                <div class="card-footer">
-                    <span class="card-count">{{ site.categories.academic | size }} 篇文章</span>
-                    {% if academic_posts.size > 0 %}
-                    <span class="card-updated">{{ academic_posts.first.date | date: "%Y-%m-%d" }} 更新</span>
-                    {% else %}
-                    <span class="card-updated">暂无内容</span>
-                    {% endif %}
+        <!-- 成就卡片（可选） -->
+        <div class="achievements-card">
+            <h3>🏆 研究生涯</h3>
+            <div class="achievement-stats">
+                <div class="stat-item">
+                    <div class="stat-number">{{ site.posts | size }}</div>
+                    <div class="stat-label">篇文章</div>
                 </div>
-            </a>
-            
-            <!-- 生活随笔 -->
-            {% assign life_posts = site.categories.life | sort: 'date' | reverse %}
-            <a href="{{ '/life/' | relative_url }}" class="card">
-                <span class="card-icon">✍️</span>
-                <h3 class="card-title">生活随笔</h3>
-                <p class="card-description">记录日常生活、感悟与美好瞬间</p>
-                <div class="card-footer">
-                    <span class="card-count">{{ site.categories.life | size }} 篇文章</span>
-                    {% if life_posts.size > 0 %}
-                    <span class="card-updated">{{ life_posts.first.date | date: "%Y-%m-%d" }} 更新</span>
-                    {% else %}
-                    <span class="card-updated">暂无内容</span>
-                    {% endif %}
+                <div class="stat-item">
+                    <div class="stat-number">{{ site.time | date: "%Y" | minus: 2025 | plus: 1 }}</div>
+                    <div class="stat-label">年在读</div>
                 </div>
-            </a>
-            
-            <!-- 目标与规划 -->
-            {% assign goals_posts = site.categories.goals | sort: 'date' | reverse %}
-            <a href="{{ '/goals/' | relative_url }}" class="card">
-                <span class="card-icon">🎯</span>
-                <h3 class="card-title">目标与规划</h3>
-                <p class="card-description">研究生涯规划、阶段目标与实现路径</p>
-                <div class="card-footer">
-                    <span class="card-count">{{ site.categories.goals | size }} 篇文章</span>
-                    {% if goals_posts.size > 0 %}
-                    <span class="card-updated">{{ goals_posts.first.date | date: "%Y-%m-%d" }} 更新</span>
-                    {% else %}
-                    <span class="card-updated">暂无内容</span>
-                    {% endif %}
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">持续成长</div>
                 </div>
-            </a>
-            
-            <!-- 思绪漫谈 -->
-            {% assign thoughts_posts = site.categories.thoughts | sort: 'date' | reverse %}
-            <a href="{{ '/thoughts/' | relative_url }}" class="card">
-                <span class="card-icon">💭</span>
-                <h3 class="card-title">思绪漫谈</h3>
-                <p class="card-description">自由思考、观点分享与灵感记录</p>
-                <div class="card-footer">
-                    <span class="card-count">{{ site.categories.thoughts | size }} 篇文章</span>
-                    {% if thoughts_posts.size > 0 %}
-                    <span class="card-updated">{{ thoughts_posts.first.date | date: "%Y-%m-%d" }} 更新</span>
-                    {% else %}
-                    <span class="card-updated">暂无内容</span>
-                    {% endif %}
-                </div>
-            </a>
+            </div>
+            <p class="achievement-quote">Stay hungry, Stay foolish.</p>
         </div>
     </div>
 </section>
 
-
+<!-- 最新文章列表 -->
+<section class="posts-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">最新文章</h2>
+            <a href="{{ '/archive/' | relative_url }}" class="view-all">查看全部 →</a>
+        </div>
+        
+        {% assign recent_posts = site.posts | limit: 6 %}
+        
+        {% if recent_posts.size > 0 %}
+            <div class="posts-timeline">
+                {% for post in recent_posts %}
+                <article class="post-card">
+                    <div class="post-date-badge">
+                        <span class="date-day">{{ post.date | date: "%d" }}</span>
+                        <span class="date-month">{{ post.date | date: "%m月" }}</span>
+                        <span class="date-year">{{ post.date | date: "%Y" }}</span>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">
+                            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                        </h3>
+                        {% if post.excerpt %}
+                        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+                        {% endif %}
+                        {% if post.tags %}
+                        <div class="post-tags">
+                            {% for tag in post.tags %}
+                            <span class="tag">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="empty-state">
+                <div class="empty-icon">📝</div>
+                <p>还没有文章，开始写第一篇吧！</p>
+            </div>
+        {% endif %}
+    </div>
+</section>

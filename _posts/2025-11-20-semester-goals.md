@@ -2,7 +2,6 @@
 layout: post
 title: "2025年秋季学期目标与规划"
 date: 2025-11-20
-category: goals
 tags: [目标, 规划]
 ---
 

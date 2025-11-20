@@ -1,0 +1,57 @@
+---
+layout: default
+title: 关于我
+permalink: /about/
+---
+
+<div class="page-header-simple">
+    <div class="container">
+        <h1 class="page-title">关于我</h1>
+    </div>
+</div>
+
+<section class="about-section">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-card">
+                <h2>👋 你好</h2>
+                <p>我是朱轶豪，西安电子科技大学密码学专业2025级硕士研究生。</p>
+                <p>这个博客用于记录我的研究生学习生活，包括论文阅读笔记、日常感悟、目标规划等内容。</p>
+            </div>
+            
+            <div class="about-card">
+                <h2>🎓 教育背景</h2>
+                <ul>
+                    <li><strong>西安电子科技大学</strong> - 密码学硕士（2025-至今）</li>
+                </ul>
+            </div>
+            
+            <div class="about-card">
+                <h2>📚 研究方向</h2>
+                <p>密码学及相关领域</p>
+            </div>
+            
+            <div class="about-card">
+                <h2>💻 技能</h2>
+                <ul>
+                    <li>密码学理论与实践</li>
+                    <li>算法分析与设计</li>
+                    <li>学术论文写作</li>
+                </ul>
+            </div>
+            
+            <div class="about-card">
+                <h2>📬 联系方式</h2>
+                <p>
+                    {% if site.author.email %}
+                    📧 Email: <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a><br>
+                    {% endif %}
+                    {% if site.author.github %}
+                    🔗 GitHub: <a href="https://github.com/{{ site.author.github }}" target="_blank">@{{ site.author.github }}</a>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+

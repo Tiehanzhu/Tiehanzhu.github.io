@@ -2,7 +2,6 @@
 layout: post
 title: "研一第一周的感悟"
 date: 2025-11-20
-category: life
 tags: [研究生生活, 感悟]
 ---
 

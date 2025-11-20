@@ -1,6 +1,5 @@
 /* ===================================
-   朱轶豪的个人博客 - 简约大气设计
-   灵感来源: Apple & Louis Vuitton
+   朱轶豪的个人博客 - 简约实用设计
    =================================== */
 
 /* 重置和基础样式 */
@@ -31,14 +30,13 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* 容器 */
 .container {
-    max-width: 1200px;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
-/* 导航栏 */
+/* ==================== 导航栏 ==================== */
 .navbar {
     position: fixed;
     top: 0;
@@ -51,9 +49,9 @@ body {
 }
 
 .nav-content {
-    max-width: 1200px;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
     height: 60px;
     display: flex;
     align-items: center;
@@ -61,23 +59,23 @@ body {
 }
 
 .logo {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     color: var(--primary-color);
     text-decoration: none;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.3px;
 }
 
 .nav-links {
     display: flex;
-    gap: 40px;
+    gap: 32px;
     list-style: none;
 }
 
 .nav-links a {
     color: var(--primary-color);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 400;
     transition: var(--transition);
     opacity: 0.8;
@@ -85,361 +83,388 @@ body {
 
 .nav-links a:hover {
     opacity: 1;
+    color: var(--accent-color);
 }
 
-/* 主页 Hero 区域 - 左右分栏 */
-.hero {
+/* ==================== 主页 - 个人介绍 ==================== */
+.intro-section {
     margin-top: 60px;
-    padding: 100px 0 80px;
-    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+    padding: 80px 0 60px;
+    background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
 }
 
-.hero-layout {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 60px;
-    align-items: start;
+.intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.hero-intro {
-    text-align: left;
-}
-
-.hero-title {
-    font-size: 56px;
+.intro-name {
+    font-size: 52px;
     font-weight: 700;
-    letter-spacing: -1.5px;
-    margin-bottom: 20px;
-    line-height: 1.1;
+    letter-spacing: -1.2px;
+    margin-bottom: 16px;
 }
 
-.hero-subtitle {
-    font-size: 22px;
+.intro-title {
+    font-size: 20px;
     color: var(--secondary-color);
-    font-weight: 400;
     margin-bottom: 20px;
 }
 
-.hero-description {
+.intro-bio {
     font-size: 17px;
     color: var(--secondary-color);
     line-height: 1.8;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
 
-.hero-meta {
+.intro-meta {
     display: flex;
-    gap: 30px;
+    justify-content: center;
+    gap: 24px;
     flex-wrap: wrap;
-}
-
-.meta-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-size: 14px;
     color: var(--secondary-color);
-    font-size: 15px;
 }
 
-.meta-icon {
-    font-size: 18px;
+.intro-meta span {
+    padding: 8px 16px;
+    background: white;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
 }
 
-/* Hero 右侧成就区域 - 紧凑型 */
-.hero-achievements {
+/* 成就卡片 */
+.achievements-card {
+    max-width: 600px;
+    margin: 48px auto 0;
     background: white;
     border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 30px;
-    position: sticky;
-    top: 80px;
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
 }
 
-.hero-achievements .achievements-title {
+.achievements-card h3 {
     font-size: 20px;
     font-weight: 600;
-    margin-bottom: 20px;
-    text-align: left;
+    margin-bottom: 24px;
 }
 
-.achievements-list-compact {
+.achievement-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: var(--secondary-color);
+}
+
+.achievement-quote {
+    font-size: 14px;
+    color: var(--secondary-color);
+    font-style: italic;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ==================== 文章列表 ==================== */
+.posts-section {
+    padding: 60px 0 80px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+}
+
+.view-all {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.view-all:hover {
+    opacity: 0.7;
+}
+
+/* 文章时间线 */
+.posts-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-card {
+    display: flex;
+    gap: 24px;
+    padding: 28px;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: var(--transition);
+}
+
+.post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent-color);
+}
+
+.post-date-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    padding: 12px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.date-day {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.date-month {
+    font-size: 12px;
+    color: var(--secondary-color);
+    margin-top: 4px;
+}
+
+.date-year {
+    font-size: 11px;
+    color: var(--secondary-color);
+    opacity: 0.7;
+}
+
+.post-content {
+    flex: 1;
+}
+
+.post-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.post-title a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.post-title a:hover {
+    color: var(--accent-color);
+}
+
+.post-excerpt {
+    font-size: 15px;
+    color: var(--secondary-color);
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--card-bg);
+    color: var(--secondary-color);
+    font-size: 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+/* ==================== 归档页面 ==================== */
+.page-header-simple {
+    margin-top: 60px;
+    padding: 60px 0 40px;
+    text-align: center;
+    background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+}
+
+.page-title {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+}
+
+.page-subtitle {
+    font-size: 16px;
+    color: var(--secondary-color);
+}
+
+.archive-section {
+    padding: 60px 0 80px;
+}
+
+.year-group {
+    margin-bottom: 60px;
+}
+
+.year-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-color);
+    letter-spacing: -0.5px;
+}
+
+.year-posts {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-.achievement-item-compact {
+.archive-item {
     display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    padding: 12px;
-    background: var(--card-bg);
-    border-radius: 10px;
-    transition: var(--transition);
-}
-
-.achievement-item-compact:hover {
-    background: var(--hover-color);
-}
-
-.achievement-item-compact .achievement-icon {
-    font-size: 24px;
-    flex-shrink: 0;
-}
-
-.achievement-content {
-    flex: 1;
-}
-
-.achievement-item-compact .achievement-title {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 4px;
-}
-
-.achievement-date {
-    font-size: 13px;
-    color: var(--secondary-color);
-}
-
-.achievements-empty-compact {
-    text-align: center;
-    color: var(--secondary-color);
-    font-size: 14px;
-    padding: 30px 10px;
-    line-height: 1.8;
-}
-
-/* 板块区域 */
-.sections {
-    padding: 80px 0;
-}
-
-.section-title {
-    font-size: 40px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 50px;
-    letter-spacing: -1px;
-}
-
-/* 2x2 等权重网格布局 */
-.cards-grid-equal {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-}
-
-.card {
+    gap: 20px;
+    align-items: baseline;
+    padding: 16px 20px;
     background: white;
     border: 1px solid var(--border-color);
-    border-radius: 18px;
-    padding: 40px 30px;
-    text-align: center;
+    border-radius: 8px;
     transition: var(--transition);
-    cursor: pointer;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    min-height: 280px;
 }
 
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-color), #00a1ff);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.card:hover::before {
-    transform: scaleX(1);
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+.archive-item:hover {
+    background: var(--hover-color);
     border-color: var(--accent-color);
 }
 
-.card-icon {
-    font-size: 52px;
-    margin-bottom: 20px;
-    display: block;
-}
-
-.card-title {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: var(--primary-color);
-}
-
-.card-description {
-    font-size: 15px;
+.archive-date {
+    min-width: 60px;
+    font-size: 14px;
     color: var(--secondary-color);
-    line-height: 1.7;
-    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.archive-title {
     flex: 1;
+    font-size: 17px;
+    font-weight: 500;
 }
 
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
-    border-top: 1px solid var(--border-color);
-    font-size: 13px;
-}
-
-.card-count {
-    color: var(--accent-color);
-    font-weight: 600;
-}
-
-.card-updated {
-    color: var(--secondary-color);
-    font-size: 12px;
-}
-
-/* 旧的成就区域样式保留（如果需要在其他页面使用） */
-.achievements {
-    background: var(--card-bg);
-    border-radius: 24px;
-    padding: 60px 40px;
-    margin: 80px 0;
-    border: 1px solid var(--border-color);
-}
-
-.achievements-title {
-    font-size: 32px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.achievements-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.achievement-item {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
+.archive-title a {
+    color: var(--primary-color);
+    text-decoration: none;
     transition: var(--transition);
 }
 
-.achievement-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+.archive-title a:hover {
+    color: var(--accent-color);
 }
 
-.achievement-icon {
-    font-size: 32px;
-    margin-bottom: 15px;
-    display: block;
+.archive-tags {
+    display: flex;
+    gap: 6px;
 }
 
-.achievement-title {
-    font-size: 18px;
+.tag-small {
+    padding: 2px 8px;
+    background: var(--card-bg);
+    color: var(--secondary-color);
+    font-size: 11px;
+    border-radius: 8px;
+}
+
+/* ==================== 关于页面 ==================== */
+.about-section {
+    padding: 60px 0 80px;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.about-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 32px;
+}
+
+.about-card h2 {
+    font-size: 22px;
     font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.about-card p {
+    font-size: 16px;
+    color: var(--secondary-color);
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.about-card p:last-child {
+    margin-bottom: 0;
+}
+
+.about-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-card li {
+    font-size: 16px;
+    color: var(--secondary-color);
+    line-height: 1.8;
     margin-bottom: 8px;
 }
 
-.achievement-description {
-    font-size: 14px;
-    color: var(--secondary-color);
-    line-height: 1.5;
-}
-
-.achievements-empty {
-    text-align: center;
-    color: var(--secondary-color);
-    font-size: 16px;
-    padding: 40px;
-}
-
-/* 文章列表页面 */
-.page-header {
-    margin-top: 60px;
-    padding: 80px 0 60px;
-    text-align: center;
-    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
-}
-
-.page-title {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    letter-spacing: -1px;
-}
-
-.page-description {
-    font-size: 18px;
-    color: var(--secondary-color);
-}
-
-.posts-list {
-    padding: 60px 0;
-}
-
-.post-item {
-    background: white;
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 40px;
-    margin-bottom: 24px;
-    transition: var(--transition);
-    text-decoration: none;
-    display: block;
-}
-
-.post-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-    border-color: var(--accent-color);
-}
-
-.post-date {
-    font-size: 14px;
+.about-card a {
     color: var(--accent-color);
-    font-weight: 500;
-    margin-bottom: 12px;
-    display: block;
+    text-decoration: none;
 }
 
-.post-title {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--primary-color);
-    line-height: 1.3;
+.about-card a:hover {
+    text-decoration: underline;
 }
 
-.post-excerpt {
-    font-size: 16px;
-    color: var(--secondary-color);
-    line-height: 1.7;
-    margin-bottom: 16px;
-}
-
-.post-meta {
-    display: flex;
-    gap: 20px;
-    font-size: 14px;
-    color: var(--secondary-color);
-}
-
-/* 文章详情页面 */
+/* ==================== 文章详情页 ==================== */
 .post-content {
     padding: 80px 0;
 }
@@ -450,21 +475,38 @@ body {
     text-align: center;
 }
 
+.post-header .post-date {
+    display: block;
+    font-size: 14px;
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
 .post-header .post-title {
-    font-size: 42px;
+    font-size: 40px;
     margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--secondary-color);
 }
 
 .post-body {
     max-width: 800px;
     margin: 0 auto;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.8;
     color: var(--primary-color);
 }
 
 .post-body h2 {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 700;
     margin: 60px 0 24px;
     letter-spacing: -0.5px;
@@ -491,7 +533,7 @@ body {
 
 .post-body code {
     background: var(--card-bg);
-    padding: 2px 8px;
+    padding: 3px 8px;
     border-radius: 4px;
     font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace;
     font-size: 0.9em;
@@ -525,10 +567,19 @@ body {
     margin: 32px 0;
 }
 
-/* 页脚 */
+.post-body a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.post-body a:hover {
+    text-decoration: underline;
+}
+
+/* ==================== 页脚 ==================== */
 .footer {
     background: var(--card-bg);
-    padding: 60px 0;
+    padding: 48px 0;
     margin-top: 80px;
     border-top: 1px solid var(--border-color);
 }
@@ -542,8 +593,8 @@ body {
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-bottom: 20px;
+    gap: 24px;
+    margin-bottom: 16px;
     list-style: none;
 }
 
@@ -557,74 +608,89 @@ body {
     color: var(--primary-color);
 }
 
-/* 响应式设计 */
-@media (max-width: 1024px) {
-    .hero-layout {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .hero-intro {
-        text-align: center;
-    }
-    
-    .hero-meta {
-        justify-content: center;
-    }
-    
-    .hero-achievements {
-        position: static;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 40px;
-    }
-    
-    .hero-subtitle {
-        font-size: 18px;
-    }
-    
-    .nav-links {
-        gap: 15px;
-        font-size: 13px;
-    }
-    
-    .cards-grid-equal {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .section-title {
-        font-size: 32px;
-    }
-    
-    .post-title {
-        font-size: 24px;
-    }
-    
-    .card {
-        padding: 30px 24px;
-        min-height: auto;
-    }
-}
-
-/* 空状态提示 */
+/* ==================== 空状态 ==================== */
 .empty-state {
     text-align: center;
     padding: 80px 20px;
     color: var(--secondary-color);
 }
 
-.empty-state-icon {
+.empty-icon {
     font-size: 64px;
     margin-bottom: 24px;
     opacity: 0.3;
 }
 
-.empty-state-text {
+.empty-state p {
     font-size: 18px;
 }
 
-
+/* ==================== 响应式设计 ==================== */
+@media (max-width: 768px) {
+    .intro-name {
+        font-size: 36px;
+    }
+    
+    .intro-title {
+        font-size: 17px;
+    }
+    
+    .intro-bio {
+        font-size: 15px;
+    }
+    
+    .nav-links {
+        gap: 20px;
+    }
+    
+    .nav-links a {
+        font-size: 14px;
+    }
+    
+    .post-card {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .post-date-badge {
+        flex-direction: row;
+        gap: 8px;
+        width: 100%;
+        justify-content: flex-start;
+        padding: 12px 16px;
+    }
+    
+    .date-day {
+        font-size: 24px;
+    }
+    
+    .archive-item {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .page-title {
+        font-size: 32px;
+    }
+    
+    .post-header .post-title {
+        font-size: 32px;
+    }
+    
+    .post-body {
+        font-size: 16px;
+    }
+    
+    .achievement-stats {
+        gap: 16px;
+    }
+    
+    .stat-number {
+        font-size: 28px;
+    }
+}

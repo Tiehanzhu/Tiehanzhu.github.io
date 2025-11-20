@@ -2,7 +2,6 @@
 layout: post
 title: "如何高效阅读学术论文"
 date: 2025-11-20
-category: academic
 tags: [论文阅读, 学习方法]
 ---
 
