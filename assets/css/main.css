@@ -87,12 +87,22 @@ body {
     opacity: 1;
 }
 
-/* 主页 Hero 区域 */
+/* 主页 Hero 区域 - 左右分栏 */
 .hero {
     margin-top: 60px;
-    padding: 120px 0 80px;
-    text-align: center;
+    padding: 100px 0 80px;
     background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+}
+
+.hero-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.hero-intro {
+    text-align: left;
 }
 
 .hero-title {
@@ -104,26 +114,23 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 24px;
+    font-size: 22px;
     color: var(--secondary-color);
     font-weight: 400;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 }
 
 .hero-description {
-    font-size: 18px;
+    font-size: 17px;
     color: var(--secondary-color);
-    max-width: 600px;
-    margin: 0 auto 40px;
     line-height: 1.8;
+    margin-bottom: 30px;
 }
 
 .hero-meta {
     display: flex;
-    justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
-    margin-top: 30px;
 }
 
 .meta-item {
@@ -138,6 +145,71 @@ body {
     font-size: 18px;
 }
 
+/* Hero 右侧成就区域 - 紧凑型 */
+.hero-achievements {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 30px;
+    position: sticky;
+    top: 80px;
+}
+
+.hero-achievements .achievements-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.achievements-list-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.achievement-item-compact {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px;
+    background: var(--card-bg);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.achievement-item-compact:hover {
+    background: var(--hover-color);
+}
+
+.achievement-item-compact .achievement-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.achievement-content {
+    flex: 1;
+}
+
+.achievement-item-compact .achievement-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.achievement-date {
+    font-size: 13px;
+    color: var(--secondary-color);
+}
+
+.achievements-empty-compact {
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 14px;
+    padding: 30px 10px;
+    line-height: 1.8;
+}
+
 /* 板块区域 */
 .sections {
     padding: 80px 0;
@@ -147,19 +219,19 @@ body {
     font-size: 40px;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     letter-spacing: -1px;
 }
 
-.cards-grid {
+/* 2x2 等权重网格布局 */
+.cards-grid-equal {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-bottom: 80px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
 }
 
 .card {
-    background: var(--card-bg);
+    background: white;
     border: 1px solid var(--border-color);
     border-radius: 18px;
     padding: 40px 30px;
@@ -167,17 +239,37 @@ body {
     transition: var(--transition);
     cursor: pointer;
     text-decoration: none;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), #00a1ff);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+    transform: scaleX(1);
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     border-color: var(--accent-color);
 }
 
 .card-icon {
-    font-size: 48px;
+    font-size: 52px;
     margin-bottom: 20px;
     display: block;
 }
@@ -192,17 +284,31 @@ body {
 .card-description {
     font-size: 15px;
     color: var(--secondary-color);
-    line-height: 1.6;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    flex: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    font-size: 13px;
 }
 
 .card-count {
-    margin-top: 20px;
-    font-size: 14px;
     color: var(--accent-color);
-    font-weight: 500;
+    font-weight: 600;
 }
 
-/* 成就区域 */
+.card-updated {
+    color: var(--secondary-color);
+    font-size: 12px;
+}
+
+/* 旧的成就区域样式保留（如果需要在其他页面使用） */
 .achievements {
     background: var(--card-bg);
     border-radius: 24px;
@@ -452,21 +558,42 @@ body {
 }
 
 /* 响应式设计 */
+@media (max-width: 1024px) {
+    .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .hero-intro {
+        text-align: center;
+    }
+    
+    .hero-meta {
+        justify-content: center;
+    }
+    
+    .hero-achievements {
+        position: static;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-title {
         font-size: 40px;
     }
     
     .hero-subtitle {
-        font-size: 20px;
+        font-size: 18px;
     }
     
     .nav-links {
-        gap: 20px;
+        gap: 15px;
+        font-size: 13px;
     }
     
-    .cards-grid {
+    .cards-grid-equal {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
     
     .section-title {
@@ -475,6 +602,11 @@ body {
     
     .post-title {
         font-size: 24px;
+    }
+    
+    .card {
+        padding: 30px 24px;
+        min-height: auto;
     }
 }
 
@@ -494,4 +626,5 @@ body {
 .empty-state-text {
     font-size: 18px;
 }
+
 
