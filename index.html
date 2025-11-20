@@ -5,59 +5,27 @@ layout: default
 <!-- 个人介绍区域 -->
 <section class="intro-section">
     <div class="container">
-        <div class="intro-box">
+        <div class="intro-content">
             <h1 class="intro-name">朱轶豪</h1>
             <p class="intro-title">西安电子科技大学 · 密码学硕士研究生</p>
-            <p class="intro-bio">
-                记录研究生学习与生活的点滴。论文阅读、日常感悟、目标规划，在这里留下思考的痕迹。
+            <p class="intro-description">
+                记录研究生学习与生活的点滴。<br>
+                论文阅读、日常感悟、目标规划，在这里留下思考的痕迹。
             </p>
-            <div class="intro-stats">
-                <div class="stat-box">
-                    <div class="stat-num">{{ site.posts | size }}</div>
-                    <div class="stat-label">篇文章</div>
+            <div class="intro-meta">
+                <div class="meta-item">
+                    <span class="meta-icon">📚</span>
+                    <span class="meta-text">{{ site.posts | size }} 篇文章</span>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-num">{{ site.time | date: "%Y" | minus: 2024 }}</div>
-                    <div class="stat-label">年在读</div>
+                <div class="meta-item">
+                    <span class="meta-icon">🎓</span>
+                    <span class="meta-text">密码学研究</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">🏫</span>
+                    <span class="meta-text">西安电子科技大学</span>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- 内容板块导航 -->
-<section class="sections-nav">
-    <div class="container">
-        <h2 class="section-title">内容板块</h2>
-        <div class="sections-grid">
-            <div class="section-card" onclick="filterPosts('academic')">
-                <span class="section-icon">📖</span>
-                <h3 class="section-name">学术研读</h3>
-                <p class="section-desc">论文阅读笔记与学术思考</p>
-                <span class="section-count">{{ site.tags.论文阅读 | size | plus: site.tags.学术 | size }} 篇</span>
-            </div>
-            <div class="section-card" onclick="filterPosts('life')">
-                <span class="section-icon">✍️</span>
-                <h3 class="section-name">生活随笔</h3>
-                <p class="section-desc">日常生活记录与感悟</p>
-                <span class="section-count">{{ site.tags.生活 | size | plus: site.tags.感悟 | size }} 篇</span>
-            </div>
-            <div class="section-card" onclick="filterPosts('goals')">
-                <span class="section-icon">🎯</span>
-                <h3 class="section-name">目标规划</h3>
-                <p class="section-desc">研究生涯规划与目标</p>
-                <span class="section-count">{{ site.tags.目标 | size | plus: site.tags.规划 | size }} 篇</span>
-            </div>
-            <div class="section-card" onclick="filterPosts('thoughts')">
-                <span class="section-icon">💭</span>
-                <h3 class="section-name">思绪漫谈</h3>
-                <p class="section-desc">自由思考与灵感记录</p>
-                <span class="section-count">{{ site.tags.随笔 | size | plus: site.tags.思考 | size }} 篇</span>
-            </div>
-        </div>
-        <div class="filter-info">
-            <button class="filter-btn active" onclick="filterPosts('all')">全部</button>
-            <span class="filter-text">点击板块卡片筛选文章</span>
         </div>
     </div>
 </section>
@@ -65,31 +33,30 @@ layout: default
 <!-- 文章列表区域 -->
 <section class="posts-section">
     <div class="container">
-        <h2 class="section-title">所有文章</h2>
+        <div class="section-header">
+            <h2 class="posts-title">全部文章</h2>
+            <span class="posts-count">共 {{ site.posts | size }} 篇</span>
+        </div>
         
         {% if site.posts.size > 0 %}
-            <div class="posts-list" id="postsList">
+            <div class="posts-list">
                 {% for post in site.posts %}
-                <article class="post-item" 
-                         data-tags="{{ post.tags | join: ',' }}"
-                         data-date="{{ post.date | date: '%Y-%m-%d' }}">
-                    <div class="post-meta-bar">
+                <a href="{{ post.url | relative_url }}" class="post-card">
+                    <div class="post-header-info">
                         <time class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</time>
                         {% if post.tags %}
-                        <div class="post-tags-inline">
+                        <div class="post-tags">
                             {% for tag in post.tags %}
-                            <span class="tag-badge">{{ tag }}</span>
+                            <span class="tag">{{ tag }}</span>
                             {% endfor %}
                         </div>
                         {% endif %}
                     </div>
-                    <h3 class="post-title-link">
-                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                    </h3>
+                    <h3 class="post-title">{{ post.title }}</h3>
                     {% if post.excerpt %}
-                    <p class="post-excerpt-text">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+                    <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
                     {% endif %}
-                </article>
+                </a>
                 {% endfor %}
             </div>
         {% else %}
@@ -100,53 +67,3 @@ layout: default
         {% endif %}
     </div>
 </section>
-
-<!-- 简单的筛选脚本 -->
-<script>
-function filterPosts(category) {
-    const posts = document.querySelectorAll('.post-item');
-    const filterBtn = document.querySelector('.filter-btn');
-    
-    // 更新按钮状态
-    if (category === 'all') {
-        filterBtn.classList.add('active');
-    } else {
-        filterBtn.classList.remove('active');
-    }
-    
-    posts.forEach(post => {
-        const tags = post.getAttribute('data-tags').toLowerCase();
-        let shouldShow = false;
-        
-        if (category === 'all') {
-            shouldShow = true;
-        } else if (category === 'academic') {
-            shouldShow = tags.includes('论文') || tags.includes('学术') || tags.includes('学习方法');
-        } else if (category === 'life') {
-            shouldShow = tags.includes('生活') || tags.includes('感悟') || tags.includes('研究生生活');
-        } else if (category === 'goals') {
-            shouldShow = tags.includes('目标') || tags.includes('规划');
-        } else if (category === 'thoughts') {
-            shouldShow = tags.includes('随笔') || tags.includes('思考') || tags.includes('新开始');
-        }
-        
-        if (shouldShow) {
-            post.style.display = 'block';
-            // 添加淡入动画
-            post.style.animation = 'fadeIn 0.3s ease';
-        } else {
-            post.style.display = 'none';
-        }
-    });
-}
-
-// CSS 动画
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-`;
-document.head.appendChild(style);
-</script>
